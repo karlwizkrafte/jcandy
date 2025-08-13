@@ -1,4 +1,10 @@
-# jcandy
+<p align="center">
+  <img src="img/JCandy-Logo.png" alt="JCandy Logo" width="400"> <br>
+  <img src="img/tagline.png" alt="type less, flavor your terminal_" width="350">
+</p>
+
+## Introduction
+`JCandy` is a lightweight Java library that provides standardized CLI utilities to simplify repetitive tasks in Java projects. It is designed to reduce boilerplate code and enhance productivity.
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -11,9 +17,6 @@
 - [Showcase](#showcase)
 - [License](#license)
 
-## Introduction
-`jCandy` is a lightweight Java library that provides standardized CLI utilities to simplify repetitive tasks in Java projects. It is designed to reduce boilerplate code and enhance productivity.
-
 ## Features
 - Standardized CLI utilities for Java.
 - Reduces repetitive code.
@@ -21,9 +24,9 @@
 - Adds colorful and styled text output for enhanced CLI aesthetics.
 
 ## Installation
-To use `jcandy` in your project:
+To use `JCandy` in your project:
 
-1. Download the latest release file from the [Releases](https://github.com/karlwizkrafte/jcandy/releases) page.
+1. Download the latest release file from the [Releases](https://github.com/karlwizkrafte/JCandy/releases) page.
 2. Extract the file.
 3. Copy the `kvx` folder from the extracted `src/` directory into your own project's `src` directory.
 4. Import and use the utilities in your Java code.
@@ -36,8 +39,8 @@ No additional setup or dependencies are required.
 To use the `Std` and `Flavorful` classes, import them into your Java file:
 
 ```java
-import kvx.jcandy.Std;
-import kvx.jcandy.Flavorful;
+import kvx.JCandy.Std;
+import kvx.JCandy.Flavorful;
 ```
 
 ### Method Usage
@@ -152,27 +155,27 @@ The `Flavorful` class provides methods for adding colors, background colors, and
   ```
 
 ## Showcase
-Here is an example demonstrating how to use `jcandy` in your project:
+Here is an example demonstrating how to use `JCandy` in your project:
 
 ```java
-import kvx.jcandy.Std;
-import kvx.jcandy.Flavorful;
+import kvx.JCandy.Std;
+import kvx.JCandy.Flavorful;
 
 public class Main {
     public static void main(String[] args) {
-        // Example usage of jcandy Std utilities
+        // Example usage of JCandy Std utilities
         Std.newl();           // Print a new line
         Std.newl(2);          // Print 2 new lines
         Std.delay(500);       // Pause for 500 milliseconds
         Std.clear();          // Clear the terminal screen
 
         // Example usage of Flavorful utilities
-        String styledText = Flavorful.flavor(Flavorful.Color.green, Flavorful.Style.bold, "Welcome to jcandy!");
+        String styledText = Flavorful.flavor(Flavorful.Color.green, Flavorful.Style.bold, "Welcome to JCandy!");
         Std.println(styledText);
 
         Std.print("Enter your name: ");
         String name = "John Doe"; // Simulate user input
-        Std.printf("Hello %s, welcome to jcandy!", name);
+        Std.printf("Hello %s, welcome to JCandy!", name);
     }
 }
 ```
