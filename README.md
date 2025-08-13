@@ -7,6 +7,7 @@
 - [API Usage](#api-usage)
   - [Importing](#importing)
   - [Method Usage](#method-usage)
+  - [Flavorful Class](#flavorful-class)
 - [Showcase](#showcase)
 - [License](#license)
 
@@ -17,6 +18,7 @@
 - Standardized CLI utilities for Java.
 - Reduces repetitive code.
 - Easy integration into existing projects.
+- Adds colorful and styled text output for enhanced CLI aesthetics.
 
 ## Installation
 To use `jcandy` in your project:
@@ -30,10 +32,11 @@ No additional setup or dependencies are required.
 ## API Usage
 
 ### Importing
-To use the `Std` class, import it into your Java file:
+To use the `Std` and `Flavorful` classes, import them into your Java file:
 
 ```java
 import kvx.jcandy.Std;
+import kvx.jcandy.Flavorful;
 ```
 
 ### Method Usage
@@ -111,11 +114,48 @@ The `Std` class provides the following utility methods:
     Std.clear();
     ```
 
+### Flavorful Class
+
+> [!WARNING]  
+> The `Flavorful` class is currently experimental and may undergo significant changes in future updates. Use it with caution in production environments.
+
+The `Flavorful` class provides methods for adding colors, background colors, and styles to text output. This enhances the aesthetics of CLI applications.
+
+#### Enums
+- **`Color`**: Defines text colors (e.g., `red`, `green`, `blue`, etc.).
+- **`BGColor`**: Defines background colors (e.g., `red`, `green`, `blue`, etc.).
+- **`Style`**: Defines text styles (e.g., `bold`, `italic`, `underline`, etc.).
+
+#### Methods
+- **`flavor(Object... args)`**
+  - Combines colors, background colors, and styles with text.
+  - Example:
+    ```java
+    String styledText = Flavorful.flavor(Flavorful.Color.red, Flavorful.Style.bold, "Hello, World!");
+    Std.println(styledText);
+    ```
+
+- **Convenience Methods**
+  - **`bold(String text)`**: Makes text bold.
+  - **`underline(String text)`**: Underlines text.
+  - **`italic(String text)`**: Makes text italic.
+  - **`dim(String text)`**: Dims text.
+  - **`blink(String text)`**: Makes text blink.
+  - **`reverse(String text)`**: Reverses text colors.
+  - **`strikethrough(String text)`**: Strikes through text.
+
+  Example:
+  ```java
+  String boldText = Flavorful.bold("Bold Text");
+  Std.println(boldText);
+  ```
+
 ## Showcase
 Here is an example demonstrating how to use `jcandy` in your project:
 
 ```java
 import kvx.jcandy.Std;
+import kvx.jcandy.Flavorful;
 
 public class Main {
     public static void main(String[] args) {
@@ -124,6 +164,10 @@ public class Main {
         Std.newl(2);          // Print 2 new lines
         Std.delay(500);       // Pause for 500 milliseconds
         Std.clear();          // Clear the terminal screen
+
+        // Example usage of Flavorful utilities
+        String styledText = Flavorful.flavor(Flavorful.Color.green, Flavorful.Style.bold, "Welcome to jcandy!");
+        Std.println(styledText);
 
         Std.print("Enter your name: ");
         String name = "John Doe"; // Simulate user input
