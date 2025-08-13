@@ -1,0 +1,49 @@
+# Testing
+test.java
+
+# Ignore compiled Java class files
+*.class
+
+# Ignore log files
+*.log
+
+# Ignore generated files
+bin/
+lib/
+
+# Ignore IDE/project files
+*.iml
+*.ipr
+*.iws
+.idea/
+*.project
+*.classpath
+.settings/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore build tools
+/build/
+/out/
+
+# Ignore test results
+/test-output/
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore other common files
+*.jar
+*.war
+*.ear
+
+# Ignore temporary files
+*.tmp
+*.swp
+*.swo
+# Visual Studio Code
+.vscode/
+
+# 
