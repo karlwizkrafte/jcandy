@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="img/JCandy-Logo.png" alt="JCandy Logo" width="400"> <br>
+  <img src="img/JCandy_Logo.png" alt="JCandy Logo" width="400"> <br>
   <img src="img/tagline.png" alt="type less, flavor your terminal_" width="350">
 </p>
 
