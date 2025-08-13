@@ -4,7 +4,7 @@
 </p>
 
 ## Introduction
-`JCandy` is a lightweight Java library that provides standardized CLI utilities to simplify repetitive tasks in Java projects. It is designed to reduce boilerplate code and enhance productivity.
+`JCandy` is a lightweight Java library that simplifies console output with easy printing, formatting, and colorful text styling, helping students and developers reduce boilerplate in terminal apps. 
 
 ## Table of Contents
 - [Introduction](#introduction)
