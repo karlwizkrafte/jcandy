@@ -12,7 +12,7 @@
 - [License](#license)
 
 ## Introduction
-`jcandy` is a lightweight Java library that provides standardized CLI utilities to simplify repetitive tasks in Java projects. It is designed to reduce boilerplate code and enhance productivity.
+`jCandy` is a lightweight Java library that provides standardized CLI utilities to simplify repetitive tasks in Java projects. It is designed to reduce boilerplate code and enhance productivity.
 
 ## Features
 - Standardized CLI utilities for Java.
@@ -23,9 +23,10 @@
 ## Installation
 To use `jcandy` in your project:
 
-1. Download or clone the `jcandy` repository.
-2. Copy the `kvx` folder from `jcandy/src/` into your own project's `src` directory.
-3. Import and use the utilities in your Java code.
+1. Download the latest release file from the [Releases](https://github.com/karlwizkrafte/jcandy/releases) page.
+2. Extract the file.
+3. Copy the `kvx` folder from the extracted `src/` directory into your own project's `src` directory.
+4. Import and use the utilities in your Java code.
 
 No additional setup or dependencies are required.
 
