@@ -46,17 +46,26 @@ public class Flavorful {
             return String.format("\u001B[38;2;%d;%d;%dm", r, g, b);
         }
 
-        // Attempt 1: hex implementation
+        // Attempt 2: hex implementation with 8 character support
         public static String hex(String code) {
-        String clean = code.replace("#", "");
-        if (clean.length() != 6) {
-            throw new IllegalArgumentException("Hex color must be 6 characters");
-        }
-        int value = Integer.parseInt(clean, 16);
-        int r = (value >> 16) & 0xFF;
-        int g = (value >> 8) & 0xFF;
-        int b = value & 0xFF;
-        return String.format("\u001B[38;2;%d;%d;%dm", r, g, b);
+            String clean = code.replace("#", "");
+            if (clean.length() == 6) {
+                int value = Integer.parseInt(clean, 16);
+                int r = (value >> 16) & 0xFF;
+                int g = (value >> 8) & 0xFF;
+                int b = value & 0xFF;
+                return String.format("\u001B[38;2;%d;%d;%dm", r, g, b);
+                // Add support for 8 characters for convenience and ignore alpha.
+            } else if (clean.length() == 8) {
+                long value = Long.parseLong(clean, 16);  // Use Long instead of Integer
+                int r = (int)((value >> 24) & 0xFF);
+                int g = (int)((value >> 16) & 0xFF);
+                int b = (int)((value >> 8) & 0xFF);
+                
+                return String.format("\u001B[38;2;%d;%d;%dm", r, g, b);
+            } else {
+                throw new IllegalArgumentException("Hex color must be 6 or 8 characters");
+            }
         }
     }
    
