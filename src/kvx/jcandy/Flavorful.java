@@ -45,6 +45,19 @@ public class Flavorful {
             // Note: ANSI doesn't support alpha, add alpha for convenience, but ignore it.
             return String.format("\u001B[38;2;%d;%d;%dm", r, g, b);
         }
+
+        // Attempt 1: hex implementation
+        public static String hex(String code) {
+        String clean = code.replace("#", "");
+        if (clean.length() != 6) {
+            throw new IllegalArgumentException("Hex color must be 6 characters");
+        }
+        int value = Integer.parseInt(clean, 16);
+        int r = (value >> 16) & 0xFF;
+        int g = (value >> 8) & 0xFF;
+        int b = value & 0xFF;
+        return String.format("\u001B[38;2;%d;%d;%dm", r, g, b);
+        }
     }
    
     public enum BGColor {
