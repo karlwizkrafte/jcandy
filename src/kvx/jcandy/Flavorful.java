@@ -75,6 +75,16 @@ public class Flavorful {
         public String toString() {
             return code;
         }
+
+        public static String rgba(int r, int g, int b, int a) {
+            if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255 || a < 0 || a > 255) {
+            throw new IllegalArgumentException("RGBA values must be between 0 and 255");
+            }
+            
+            // Note: ANSI doesn't support alpha, add alpha for convenience, but ignore it.
+            return String.format("\u001B[48;2;%d;%d;%dm", r, g, b);
+        }
+
     }
    
     public enum Style {
