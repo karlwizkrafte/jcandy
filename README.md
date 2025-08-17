@@ -126,8 +126,13 @@ The `Std` class provides the following utility methods:
 The `Flavorful` class provides methods for adding colors, background colors, and styles to text output. This enhances the aesthetics of CLI applications.
 
 #### Enums
-- **`Color`**: Defines text colors (e.g., `red`, `green`, `blue`, etc.).
-- **`BGColor`**: Defines background colors (e.g., `red`, `green`, `blue`, etc.).
+
+- **`Color`**: Defines text colors (e.g., `red`, `green`, `blue`, etc.). Also provides:
+  - `Color.rgba(int r, int g, int b, int a)`: Custom RGB color (alpha is ignored, for convenience).
+  - `Color.hex(String hex)`: Custom color from hex code (6 or 8 characters, e.g., `#FF00FF` or `#FF00FFAA`).
+- **`BGColor`**: Defines background colors (e.g., `red`, `green`, `blue`, etc.). Also provides:
+  - `BGColor.rgba(int r, int g, int b, int a)`: Custom RGB background color.
+  - `BGColor.hex(String hex)`: Custom background color from hex code.
 - **`Style`**: Defines text styles (e.g., `bold`, `italic`, `underline`, etc.).
 
 #### Methods
@@ -139,14 +144,33 @@ The `Flavorful` class provides methods for adding colors, background colors, and
     Std.println(styledText);
     ```
 
+- **Custom Colors**
+  - Use RGB or hex codes for more color options:
+    ```java
+    // RGB foreground
+    String rgbText = Flavorful.flavor(Flavorful.Color.rgba(255, 128, 0, 255), "Orange Text");
+    Std.println(rgbText);
+
+    // Hex foreground
+    String hexText = Flavorful.flavor(Flavorful.Color.hex("#00FF00"), "Lime Green");
+    Std.println(hexText);
+
+    // RGB background
+    String bgRgbText = Flavorful.flavor(Flavorful.BGColor.rgba(0, 0, 255, 255), "Blue Background");
+    Std.println(bgRgbText);
+
+    // Hex background
+    String bgHexText = Flavorful.flavor(Flavorful.BGColor.hex("#FF00FF"), "Magenta Background");
+    Std.println(bgHexText);
+    ```
+  - Note: Alpha is accepted for convenience but ignored in ANSI output.
+
 - **Convenience Methods**
-  - **`bold(String text)`**: Makes text bold.
-  - **`underline(String text)`**: Underlines text.
-  - **`italic(String text)`**: Makes text italic.
-  - **`dim(String text)`**: Dims text.
-  - **`blink(String text)`**: Makes text blink.
-  - **`reverse(String text)`**: Reverses text colors.
-  - **`strikethrough(String text)`**: Strikes through text.
+  - `bold(String text)`: Makes text bold.
+  - `underline(String text)`: Underlines text.
+  - `italic(String text)`: Makes text italic.
+  - `reverse(String text)`: Reverses text colors.
+  - `strikethrough(String text)`: Strikes through text.
 
   Example:
   ```java
@@ -160,23 +184,42 @@ Here is an example demonstrating how to use `JCandy` in your project:
 ```java
 import kvx.JCandy.Std;
 import kvx.JCandy.Flavorful;
+import kvx.JCandy.Flavorful.Color;
+import kvx.JCandy.Flavorful.BGColor;
+import kvx.JCandy.Flavorful.Style;
 
 public class Main {
-    public static void main(String[] args) {
-        // Example usage of JCandy Std utilities
-        Std.newl();           // Print a new line
-        Std.newl(2);          // Print 2 new lines
-        Std.delay(500);       // Pause for 500 milliseconds
-        Std.clear();          // Clear the terminal screen
+  public static void main(String[] args) {
+    // Example usage of JCandy Std utilities
+    Std.newl();           // Print a new line
+    Std.newl(2);          // Print 2 new lines
+    Std.delay(500);       // Pause for 500 milliseconds
+    Std.clear();          // Clear the terminal screen
 
-        // Example usage of Flavorful utilities
-        String styledText = Flavorful.flavor(Flavorful.Color.green, Flavorful.Style.bold, "Welcome to JCandy!");
-        Std.println(styledText);
+    // Example usage of Flavorful utilities
+    String styledText = Flavorful.flavor(Color.green, Style.bold, "Welcome to JCandy!");
+    Std.println(styledText);
 
-        Std.print("Enter your name: ");
-        String name = "John Doe"; // Simulate user input
-        Std.printf("Hello %s, welcome to JCandy!", name);
-    }
+    // Custom RGB foreground
+    String rgbText = Flavorful.flavor(Color.rgba(255, 128, 0, 255), "Orange Text");
+    Std.println(rgbText);
+
+    // Custom hex foreground
+    String hexText = Flavorful.flavor(Color.hex("#00FF00"), "Lime Green");
+    Std.println(hexText);
+
+    // Custom RGB background
+    String bgRgbText = Flavorful.flavor(BGColor.rgba(0, 0, 255, 255), "Blue Background");
+    Std.println(bgRgbText);
+
+    // Custom hex background
+    String bgHexText = Flavorful.flavor(BGColor.hex("#FF00FF"), "Magenta Background");
+    Std.println(bgHexText);
+
+    Std.print("Enter your name: ");
+    String name = "John Doe"; // Simulate user input
+    Std.printf("Hello %s, welcome to JCandy!", name);
+  }
 }
 ```
 
