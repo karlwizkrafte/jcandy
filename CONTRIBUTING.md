@@ -37,6 +37,11 @@ Before opening a pull request, make sure:
 2. You included or updated tests for your changes where appropriate.
 3. The changes are documented in code and, when needed, in the README or other docs.
 4. Commits are focused and atomic. Squash or rebase as needed before submitting.
+5. Commit messages follow the Conventional Commits specification to keep history clear and support automated changelogs and releases. See [Conventional Commits specification](https://www.conventionalcommits.org/en/v1.0.0/) for the full guide. Example messages:
+
+	* feat: add helper for X
+	* fix: correct null handling in Y
+	* docs: update CONTRIBUTING.md
 
 ## Creating a Pull Request
 
