@@ -36,19 +36,34 @@ No additional setup or dependencies are required.
 ## API Usage
 
 <p align="center">
-  <img src="img/Std_banner.png" alt="JCandy Logo" width="800"> <br> <br>
+  <img src="img/Std_banner.png" alt="Std Banner" width="800"> <br>
+</p>
+
+<p align="center">
+  <img src="img/Std_demonstration.png" alt="Std demonstration" width="800"> <br>
 </p>
 
 ### Importing
 To use the `Std` and `Flavorful` classes, import them into your Java file:
 
 ```java
+// Static import examples (for direct method access)
+import static kvx.JCandy.Std.*;
+import static kvx.JCandy.Flavorful.*;
+```
+
+
+```
+// Safer (non-static) import examples (recommended for clarity and avoiding conflicts)
 import kvx.JCandy.Std;
 import kvx.JCandy.Flavorful;
 ```
 
 ### Method Usage
 The `Std` class provides the following utility methods:
+
+> [!TIP]
+> **Static imports** let you call methods like `printf("Hello")` directly, but can cause naming conflicts if other classes have similar method names. For safer usage, prefer non-static imports and call methods with their class name, e.g., `Std.printf("Hello")`.
 
 #### Output Methods
 - **`printf(String message)`**
@@ -125,11 +140,11 @@ The `Std` class provides the following utility methods:
 ### Flavorful Class
 
 <p align="center">
-  <img src="img/Flavorful_banner.png" alt="JCandy Logo" width="800"> <br> <br>
+  <img src="img/Flavorful_banner.png" alt="Flavorful Banner" width="800"> <br>
 </p>
 
 > [!WARNING]  
-> The `Flavorful` class is currently experimental and may undergo significant changes in future updates. Use it with caution in production environments.
+> The `Flavorful` class is currently **experimental** and may undergo significant changes in future updates. Use it with caution in production environments.
 
 The `Flavorful` class provides methods for adding colors, background colors, and styles to text output. This enhances the aesthetics of CLI applications.
 
