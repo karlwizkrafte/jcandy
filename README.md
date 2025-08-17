@@ -143,7 +143,7 @@ The `Std` class provides the following utility methods:
 </p>
 
 <p align="center">
-  <img src="img/Flavorful_demonstration.png" alt="Flavorful demonstration" width="850">
+  <img src="img/Flavorful_demonstration.png" alt="Flavorful demonstration" width="950">
 </p>
 
 > [!WARNING]  
@@ -207,6 +207,3 @@ The `Flavorful` class provides methods for adding colors, background colors, and
   String boldText = Flavorful.bold("Bold Text");
   Std.println(boldText);
   ```
-
-## License
-This project is licensed under the MIT License. See the `LICENSE` file for details.
