@@ -133,14 +133,12 @@ public class Flavorful {
     }
    
     public enum Style {
-        reset("\u001B[0m"),
-        bold("\u001B[1m"),
-        dim("\u001B[2m"),
-        italic("\u001B[3m"),
-        underline("\u001B[4m"),
-        blink("\u001B[5m"),
-        reverse("\u001B[7m"),
-        strikethrough("\u001B[9m");
+    reset("\u001B[0m"),
+    bold("\u001B[1m"),
+    italic("\u001B[3m"),
+    underline("\u001B[4m"),
+    reverse("\u001B[7m"),
+    strikethrough("\u001B[9m");
        
         private final String code;
        
@@ -189,13 +187,6 @@ public class Flavorful {
         return flavor(text, Style.italic);
     }
     
-    public static String dim(String text) {
-        return flavor(text, Style.dim);
-    }
-    
-    public static String blink(String text) {
-        return flavor(text, Style.blink);
-    }
     
     public static String reverse(String text) {
         return flavor(text, Style.reverse);
