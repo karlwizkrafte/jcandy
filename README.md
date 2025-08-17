@@ -14,7 +14,6 @@
   - [Importing](#importing)
   - [Method Usage](#method-usage)
   - [Flavorful Class](#flavorful-class)
-- [Showcase](#showcase)
 - [License](#license)
 
 ## Features
@@ -143,8 +142,12 @@ The `Std` class provides the following utility methods:
   <img src="img/Flavorful_banner.png" alt="Flavorful Banner" width="800"> <br>
 </p>
 
+<p align="center">
+  <img src="img/Flavorful_demonstration.png" alt="Flavorful demonstration" width="850">
+</p>
+
 > [!WARNING]  
-> The `Flavorful` class is currently **experimental** and may undergo significant changes in future updates. Use it with caution in production environments.
+> The `Flavorful` class is currently **experimental** and may undergo significant changes in future updates. Additionally, support for ANSI escape codes used by `Flavorful` may vary depending on the terminal environment. Ensure compatibility with your target terminal.
 
 The `Flavorful` class provides methods for adding colors, background colors, and styles to text output. This enhances the aesthetics of CLI applications.
 
@@ -153,9 +156,13 @@ The `Flavorful` class provides methods for adding colors, background colors, and
 - **`Color`**: Defines text colors (e.g., `red`, `green`, `blue`, etc.). Also provides:
   - `Color.rgba(int r, int g, int b, int a)`: Custom RGB color (alpha is ignored, for convenience).
   - `Color.hex(String hex)`: Custom color from hex code (6 or 8 characters, e.g., `#FF00FF` or `#FF00FFAA`).
+  - `Color.rgb(int r, int g, int b)`: Custom RGB color without alpha.
+
 - **`BGColor`**: Defines background colors (e.g., `red`, `green`, `blue`, etc.). Also provides:
   - `BGColor.rgba(int r, int g, int b, int a)`: Custom RGB background color.
   - `BGColor.hex(String hex)`: Custom background color from hex code.
+  - `BGColor.rgb(int r, int g, int b)`: Custom RGB background color without alpha.
+
 - **`Style`**: Defines text styles (e.g., `bold`, `italic`, `underline`, etc.).
 
 #### Methods
@@ -163,7 +170,7 @@ The `Flavorful` class provides methods for adding colors, background colors, and
   - Combines colors, background colors, and styles with text.
   - Example:
     ```java
-    String styledText = Flavorful.flavor(Flavorful.Color.red, Flavorful.Style.bold, "Hello, World!");
+    String styledText = Flavorful.flavor("Hello, World!", Flavorful.Color.red, Flavorful.Style.bold);
     Std.println(styledText);
     ```
 
@@ -171,19 +178,19 @@ The `Flavorful` class provides methods for adding colors, background colors, and
   - Use RGB or hex codes for more color options:
     ```java
     // RGB foreground
-    String rgbText = Flavorful.flavor(Flavorful.Color.rgba(255, 128, 0, 255), "Orange Text");
+    String rgbText = Flavorful.flavor("Orange Text", Flavorful.Color.rgba(255, 128, 0, 255));
     Std.println(rgbText);
 
     // Hex foreground
-    String hexText = Flavorful.flavor(Flavorful.Color.hex("#00FF00"), "Lime Green");
+    String hexText = Flavorful.flavor("Lime Green", Flavorful.Color.hex("#00FF00"));
     Std.println(hexText);
 
     // RGB background
-    String bgRgbText = Flavorful.flavor(Flavorful.BGColor.rgba(0, 0, 255, 255), "Blue Background");
+    String bgRgbText = Flavorful.flavor("Blue Background", Flavorful.BGColor.rgba(0, 0, 255, 255));
     Std.println(bgRgbText);
 
     // Hex background
-    String bgHexText = Flavorful.flavor(Flavorful.BGColor.hex("#FF00FF"), "Magenta Background");
+    String bgHexText = Flavorful.flavor("Magenta Background", Flavorful.BGColor.hex("#FF00FF"));
     Std.println(bgHexText);
     ```
   - Note: Alpha is accepted for convenience but ignored in ANSI output.
@@ -200,51 +207,6 @@ The `Flavorful` class provides methods for adding colors, background colors, and
   String boldText = Flavorful.bold("Bold Text");
   Std.println(boldText);
   ```
-
-## Showcase
-Here is an example demonstrating how to use `JCandy` in your project:
-
-```java
-import kvx.JCandy.Std;
-import kvx.JCandy.Flavorful;
-import kvx.JCandy.Flavorful.Color;
-import kvx.JCandy.Flavorful.BGColor;
-import kvx.JCandy.Flavorful.Style;
-
-public class Main {
-  public static void main(String[] args) {
-    // Example usage of JCandy Std utilities
-    Std.newl();           // Print a new line
-    Std.newl(2);          // Print 2 new lines
-    Std.delay(500);       // Pause for 500 milliseconds
-    Std.clear();          // Clear the terminal screen
-
-    // Example usage of Flavorful utilities
-    String styledText = Flavorful.flavor(Color.green, Style.bold, "Welcome to JCandy!");
-    Std.println(styledText);
-
-    // Custom RGB foreground
-    String rgbText = Flavorful.flavor(Color.rgba(255, 128, 0, 255), "Orange Text");
-    Std.println(rgbText);
-
-    // Custom hex foreground
-    String hexText = Flavorful.flavor(Color.hex("#00FF00"), "Lime Green");
-    Std.println(hexText);
-
-    // Custom RGB background
-    String bgRgbText = Flavorful.flavor(BGColor.rgba(0, 0, 255, 255), "Blue Background");
-    Std.println(bgRgbText);
-
-    // Custom hex background
-    String bgHexText = Flavorful.flavor(BGColor.hex("#FF00FF"), "Magenta Background");
-    Std.println(bgHexText);
-
-    Std.print("Enter your name: ");
-    String name = "John Doe"; // Simulate user input
-    Std.printf("Hello %s, welcome to JCandy!", name);
-  }
-}
-```
 
 ## License
 This project is licensed under the MIT License. See the `LICENSE` file for details.
