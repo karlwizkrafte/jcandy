@@ -2,12 +2,15 @@
  * MIT License
  * Copyright (c) 2025 karlwizkrafte
  *
- * This library provides standard CLI utilities for Java-related laboratory tasks to reduce boilerplate.
+ * JCandy is a lightweight Java library that simplifies console output 
+ * with easy printing, formatting, and colorful text styling, helping students and developers 
+ * reduce boilerplate in terminal apps. 
  */
 
 package kvx.jcandy;
 
 public class Flavorful {
+
     public enum Color {
         red("\u001B[31m"),
         green("\u001B[32m"),
@@ -47,17 +50,17 @@ public class Flavorful {
         }
 
         // Attempt 2: hex implementation with 8 character support
+        // Note to self use long for both since 8-character hex exceeds 32-bit :)
         public static String hex(String code) {
             String clean = code.replace("#", "");
             if (clean.length() == 6) {
-                int value = Integer.parseInt(clean, 16);
-                int r = (value >> 16) & 0xFF;
-                int g = (value >> 8) & 0xFF;
-                int b = value & 0xFF;
+                long value = Long.parseLong(clean, 16);
+                long r = (int)((value >> 16) & 0xFF);
+                long g = (int)((value >> 8) & 0xFF);
+                long b = (int)(value & 0xFF);
                 return String.format("\u001B[38;2;%d;%d;%dm", r, g, b);
-                // Add support for 8 characters for convenience and ignore alpha.
             } else if (clean.length() == 8) {
-                long value = Long.parseLong(clean, 16);  // Use Long instead of Integer
+                long value = Long.parseLong(clean, 16);
                 int r = (int)((value >> 24) & 0xFF);
                 int g = (int)((value >> 16) & 0xFF);
                 int b = (int)((value >> 8) & 0xFF);
@@ -98,26 +101,25 @@ public class Flavorful {
             return code;
         }
 
+        // Same logic with the foreground just copied
         public static String rgba(int r, int g, int b, int a) {
             if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255 || a < 0 || a > 255) {
             throw new IllegalArgumentException("RGBA values must be between 0 and 255");
             }
-            
-            // Note: ANSI doesn't support alpha, add alpha for convenience, but ignore it.
             return String.format("\u001B[48;2;%d;%d;%dm", r, g, b);
         }
 
+        // Same logic with the foreground just copied
         public static String hex(String code) {
             String clean = code.replace("#", "");
             if (clean.length() == 6) {
-                int value = Integer.parseInt(clean, 16);
-                int r = (value >> 16) & 0xFF;
-                int g = (value >> 8) & 0xFF;
-                int b = value & 0xFF;
+                long value = Long.parseLong(clean, 16);
+                long r = (int)((value >> 16) & 0xFF);
+                long g = (int)((value >> 8) & 0xFF);
+                long b = (int)(value & 0xFF);
                 return String.format("\u001B[38;2;%d;%d;%dm", r, g, b);
-                // Add support for 8 characters for convenience and ignore alpha.
             } else if (clean.length() == 8) {
-                long value = Long.parseLong(clean, 16);  // Use Long instead of Integer
+                long value = Long.parseLong(clean, 16);
                 int r = (int)((value >> 24) & 0xFF);
                 int g = (int)((value >> 16) & 0xFF);
                 int b = (int)((value >> 8) & 0xFF);
@@ -164,7 +166,6 @@ public class Flavorful {
             } else if (arg instanceof Style) {
                 styling.append(((Style) arg).toString());
             } else if (arg instanceof String && ((String) arg).matches("\\u001B\\[[0-9;]*m")) {
-                // Note self: Attempt 2 - treat raw ANSI escape code as styling (LLM FIX)
                 styling.append((String) arg);
             } else {
                 // Everything else is treated as text content
