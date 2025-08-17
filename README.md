@@ -40,7 +40,7 @@ No additional setup or dependencies are required.
 </p>
 
 <p align="center">
-  <img src="img/Std_demonstration.png" alt="Std demonstration" width="800"> <br>
+  <img src="img/Std_demonstration.png" alt="Std demonstration" width="800">
 </p>
 
 ### Importing
