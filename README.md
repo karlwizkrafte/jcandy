@@ -35,6 +35,10 @@ No additional setup or dependencies are required.
 
 ## API Usage
 
+<p align="center">
+  <img src="img/Std_banner.png" alt="JCandy Logo" width="800"> <br> <br>
+</p>
+
 ### Importing
 To use the `Std` and `Flavorful` classes, import them into your Java file:
 
@@ -119,6 +123,10 @@ The `Std` class provides the following utility methods:
     ```
 
 ### Flavorful Class
+
+<p align="center">
+  <img src="img/Flavorful_banner.png" alt="JCandy Logo" width="800"> <br> <br>
+</p>
 
 > [!WARNING]  
 > The `Flavorful` class is currently experimental and may undergo significant changes in future updates. Use it with caution in production environments.
