@@ -117,7 +117,7 @@ public class Flavorful {
                 long r = (int)((value >> 16) & 0xFF);
                 long g = (int)((value >> 8) & 0xFF);
                 long b = (int)(value & 0xFF);
-                return String.format("\u001B[38;2;%d;%d;%dm", r, g, b);
+                return String.format("\u001B[48;2;%d;%d;%dm", r, g, b);
             } else if (clean.length() == 8) {
                 long value = Long.parseLong(clean, 16);
                 int r = (int)((value >> 24) & 0xFF);
