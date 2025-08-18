@@ -1,5 +1,3 @@
-package tests.kvx.jcandy;
-
 import kvx.jcandy.*;
 
 public class FlavorfulTest {
