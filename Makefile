@@ -2,13 +2,13 @@
 
 # Java build settings
 SRC := $(wildcard src/kvx/jcandy/*.java)
-TESTS := $(wildcard tests/kvx/jcandy/*.java)
+TESTS := $(wildcard tests/*.java)
 OUT := out/classes
 
 JAVAC := javac
 JAVA := java
-MAIN := tests.kvx.jcandy.RunAllTests
-JFLAGS := -d $(OUT)
+MAIN := RunAllTests
+JFLAGS := -d $(OUT) -cp $(OUT)
 
 all: compile
 
@@ -16,7 +16,7 @@ compile: $(OUT) $(SRC) $(TESTS)
 	$(JAVAC) $(JFLAGS) $(SRC) $(TESTS)
 
 $(OUT):
-	mkdir -p $(OUT)
+	@mkdir -p $(OUT) 2>/dev/null || mkdir "$(subst /,\,$(OUT))" 2>nul || true
 
 run: compile
 	$(JAVA) -cp $(OUT) $(MAIN)
@@ -33,12 +33,13 @@ run-sh:
 	fi
 
 clean:
-	rm -rf $(OUT)
+	@rm -rf $(OUT) 2>/dev/null || rmdir /s /q "$(subst /,\,$(OUT))" 2>nul || true
 
 help:
 	@echo "Makefile targets:"
 	@echo "  make         (same as make compile)"
-	@echo "  make compile Compile sources and tests into out/classes"
+	@echo "  make compile Compile sources and tests into out/"
 	@echo "  make run     Compile (if needed) and run tests"
 	@echo "  make test    Alias for make run"
 	@echo "  make clean   Remove compiled classes"
+	@echo ""
