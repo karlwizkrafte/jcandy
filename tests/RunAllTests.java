@@ -1,5 +1,3 @@
-package tests.kvx.jcandy;
-
 public class RunAllTests {
     public static void main(String[] args) {
         StdTest.run();
